@@ -9,15 +9,66 @@ package edu.kis.vh.nursery;
 public class DefaultCountingOutRhymer {
 
     /**
+     * The size of the array used to store integer values.
+     */
+    private static int num12 = 12;
+
+    /**
+     * The initial value indicating an empty state.
+     */
+    private static int numMinus1 = -1;
+
+    /**
+     * The index value indicating the array is full.
+     */
+    private static int num11 = 11;
+
+    /**
      * The array used to store integer values.
      */
-    private int[] numbers = new int[12];
+    private int[] numbers = new int[num12];
+
+    /**
+     * Returns the size of the array.
+     *
+     * @return the size of the array.
+     */
+    public static int getNum12() {
+        return num12;
+    }
+
+    /**
+     * Sets the size of the array.
+     *
+     * @param num12 the size of the array to set.
+     */
+    public static void setNum12(int num12) {
+        DefaultCountingOutRhymer.num12 = num12;
+    }
+
+    /**
+     * Returns the initial value indicating an empty state.
+     *
+     * @return the initial value indicating an empty state.
+     */
+    public static int getNumMinus1() {
+        return numMinus1;
+    }
 
     /**
      * The current index in the numbers array.
      * Initialized to -1 to represent an empty state.
      */
-    public int total = -1;
+    private int total = numMinus1;
+
+    /**
+     * Returns the current index in the numbers array.
+     *
+     * @return the current index in the numbers array.
+     */
+    public int getTotal() {
+        return total;
+    }
 
     /**
      * Adds a value to the stack if it is not full.
@@ -35,7 +86,7 @@ public class DefaultCountingOutRhymer {
      * @return true if the stack is empty, false otherwise.
      */
     public boolean callCheck() {
-        return total == -1;
+        return total == numMinus1;
     }
 
     /**
@@ -44,7 +95,7 @@ public class DefaultCountingOutRhymer {
      * @return true if the stack is full, false otherwise.
      */
     public boolean isFull() {
-        return total == 11;
+        return total == num11;
     }
 
     /**
@@ -54,7 +105,7 @@ public class DefaultCountingOutRhymer {
      */
     protected int peekaboo() {
         if (callCheck())
-            return -1;
+            return numMinus1;
         return numbers[total];
     }
 
@@ -65,8 +116,16 @@ public class DefaultCountingOutRhymer {
      */
     public int countOut() {
         if (callCheck())
-            return -1;
+            return numMinus1;
         return numbers[total--];
     }
 
+    /**
+     * Returns the array used to store integer values.
+     *
+     * @return the array used to store integer values.
+     */
+    public int[] getNumbers() {
+        return numbers;
+    }
 }
